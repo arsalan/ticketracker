@@ -11,5 +11,9 @@ feature 'Creating Projects' do
 		click_button 'Create Project'
 
 		expect(page).to have_content('Project has been created.')
+
+		project = Project.where(name: "Ticket Tracker").first
+		expect(page.current_url).to eql(project_url(project))
+		expect(page).to have_title("Ticket Tracker - Projects - Ticketracker")
 	end
 end
