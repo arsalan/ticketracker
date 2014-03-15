@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe ProjectsController do
-
+	it "displays an error for a missing project" do
+		get :show, id: "bad-project-name"
+		expect(response).to redirect_to(projects_path)
+		expect(flash[:alert]).to eql("The project you were looking for could not be found.")
+	end
 end
