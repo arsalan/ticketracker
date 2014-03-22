@@ -9,6 +9,9 @@ Ticketracker::Application.routes.draw do
   end
   resources :users
 
+  get "/signin", to:"sessions#new"
+  post "/signin", to:"sessions#create"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
