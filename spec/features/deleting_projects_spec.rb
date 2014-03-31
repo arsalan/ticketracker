@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature "Deleting projects" do
 	before do
+		sign_in_as!(FactoryGirl.create(:admin_user))
 		FactoryGirl.create(:project, name: "Ticket Tracker")
 		visit '/'
 		click_link "Ticket Tracker"
